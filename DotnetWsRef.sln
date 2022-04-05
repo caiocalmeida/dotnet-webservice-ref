@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetWsRef.Api", "DotnetWsRef.Api\DotnetWsRef.Api.csproj", "{4E5E006D-FB9A-4CC2-99BE-120349917D94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E5E006D-FB9A-4CC2-99BE-120349917D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E5E006D-FB9A-4CC2-99BE-120349917D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E5E006D-FB9A-4CC2-99BE-120349917D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E5E006D-FB9A-4CC2-99BE-120349917D94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B014B070-E1F2-4FBD-AEBB-105D1C806281}
+	EndGlobalSection
+EndGlobal
