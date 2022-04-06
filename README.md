@@ -6,6 +6,8 @@ This project documents patterns and packages for building web services with .NET
 
 REST: [ASP.NET Core](https://github.com/dotnet/aspnetcore)
 
+GraphQL: [Hot Chocolate](https://github.com/ChilliCream/hotchocolate)
+
 ## Data persistence
 
 SQL: [PostgreSQL](https://www.postgresql.org/) through [Entity Framework Core](https://github.com/dotnet/efcore)

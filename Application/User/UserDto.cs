@@ -1,14 +1,11 @@
 ﻿using DotnetWsRef.Domain;
-using System.Text.Json.Serialization;
 
 namespace DotnetWsRef.Application.User;
 
 public class UserDto
 {
-    [JsonPropertyName("ID")]
     public Guid? Id { get; set; }
 
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     public UserDto()
