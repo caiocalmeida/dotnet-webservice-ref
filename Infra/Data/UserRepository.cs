@@ -22,7 +22,15 @@ internal class UserRepository : IUserRepository
     {
         var trackedUser = await _dbContext.Users.AddAsync(user);
 
-        await _dbContext.SaveChangesAsync();
+        try
+        {
+            await _dbContext.SaveChangesAsync();
+        }
+        catch
+        {
+            trackedUser.State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+            throw;
+        }
 
         return trackedUser.Entity;
     }
