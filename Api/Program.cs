@@ -3,17 +3,19 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
 builder.Services
     .AddGraphQLServer()
     .AddDocumentFromFile("./graphql/schema.graphql")
     .BindRuntimeType<Query>()
     .BindRuntimeType<Mutation>();
+
+// Used to access request headers on graphql resolvers
+builder.Services.AddHttpContextAccessor();
+
 DotnetWsRef.Application.Config.RegisterDependencies(builder.Services);
 DotnetWsRef.Infra.Config.RegisterDependencies(builder.Services, builder.Configuration["POSTGRES_CONNECTION_STRING"]);
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {

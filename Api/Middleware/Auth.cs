@@ -16,9 +16,6 @@ public class AuthorizeAttribute : Attribute, IAuthorizationFilter
 
     public void OnAuthorization(AuthorizationFilterContext context)
     {
-        if (!Enum.IsDefined(typeof(AuthType), _type))
-            throw new NotImplementedException();
-
         if (_type == AuthType.ApiKey)
         {
             if (context.HttpContext.Request.Headers.TryGetValue("X-API-KEY", out var apiKey) && apiKey == "example")
@@ -40,6 +37,28 @@ public class AuthorizeAttribute : Attribute, IAuthorizationFilter
             StatusCode = (int)HttpStatusCode.Forbidden,
             Content = "This API endpoint is unavailable in order to prevent abuse."
         };
+    }
+}
+
+public static class GraphQlAuth
+{
+    public static bool Authorize(AuthType authType, HttpContext context, out string? errorMessage)
+    {
+        errorMessage = null;
+
+        if (authType == AuthType.ApiKey)
+        {
+            if (context.Request.Headers.TryGetValue("X-API-KEY", out var apiKey) && apiKey == "example")
+            {
+                return false;
+            }
+
+            errorMessage = "Unauthorized query. Please provide a valid key in the X-API-KEY request header. (Since this is just an example API, use \"example\" as the key)";
+            return true;
+        }
+
+        errorMessage = "This query is unavailable in order to prevent abuse.";
+        return true;
     }
 }
 
